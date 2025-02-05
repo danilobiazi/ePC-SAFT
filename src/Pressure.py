@@ -94,49 +94,8 @@ def Press(eta, x, Pspec, T, Prop):
         # and to disable ion-solvent association inside the "normal" association term
         flag_ion = 1
         
-        # como a interacao associativa refere-se diretamente a agua-ion, nao eh necessaria regra de combinacao para kAB e eAB
         eABij_ion = np.array(Prop.eABij)        
         kABij_ion = np.array(Prop.kABij)
-
-        
-        cations = np.where(Prop.charge == 1)
-        anions = np.where(Prop.charge == -1)
-        solvents = np.empty(0)
-        A = Prop.S[np.where(Prop.charge == 0)]
-        
-        for k,i in enumerate(Prop.S):  
-            for j in A:
-                if np.array_equal(i,j):
-                    solvents=np.append(solvents,k)
-        
-        solvents = solvents.astype(int)
-           
-                    
-        for i in solvents:
-            for j in solvents:
-                eABij_ion[i,j] = 0
-                kABij_ion[i,j] = 0
-        
-        for i in cations:
-            for j in cations:
-                eABij_ion[i,j] = 0
-                kABij_ion[i,j] = 0
-                
-        for i in anions:
-            for j in anions:
-                eABij_ion[i,j] = 0
-                kABij_ion[i,j] = 0
-
-        for i in cations:
-            for j in anions:
-                eABij_ion[i,j] = 0
-                kABij_ion[i,j] = 0
-                
-        for i in anions:
-            for j in cations:
-                eABij_ion[i,j] = 0
-                kABij_ion[i,j] = 0
-
         Prop.eABij_ion = eABij_ion
         Prop.kABij_ion = kABij_ion
         
@@ -211,8 +170,6 @@ def Press(eta, x, Pspec, T, Prop):
         Prop.depsrdro_metro = depsrdro_metro
         Prop.dpermdro_metro = dpermdro_metro
 
-
-
     zion = 0
     zborn = 0
     if Prop.charge.any() != 0: #and np.sum(x[Prop.charge !=0]) > 1e-12:
@@ -226,8 +183,7 @@ def Press(eta, x, Pspec, T, Prop):
         zion = dh.zion(ro_metro, aion, Kd, dkdro_metro, perm, dpermdro_metro, T, x, Prop.charge, dxjdro_metro)
         Prop.Kd = Kd
         Prop.Xj = Xj
-        Prop.zion = zion
-        
+        Prop.zion = zion   
         
         if Prop.checkborn == 1:
             Prop.msgBorn = 'Born term enabled'
@@ -242,6 +198,5 @@ def Press(eta, x, Pspec, T, Prop):
 
     Pcalc = z * kb * T * ro * 10 ** 30  # Pressure in Pa
     Prop.Pcalc = Pcalc
-
 
     return Pcalc - Pspec
