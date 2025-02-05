@@ -11,7 +11,7 @@ The code is built in Python to calculate the components' fugacity coefficients o
 
 Only aqueous solutions were studied so far. Extensions to other solvents or to mixture of solvents must be done with caution.
 
-## Files organization
+## Files
 
 All python files are included inside the folder "src", including the components parameters bank (csv file). The equations of each term in ePC-SAFT are available in separated modules, including a specific module to the dielectric constant model equations. The main routine is inside the PhiPhase module. The "Pressure" module contains the sequence of equations required for the pressure loop convergence.
 
