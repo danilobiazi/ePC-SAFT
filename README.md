@@ -19,4 +19,4 @@ The example file is inside the folder "example".
 
 ## Dependencies
 
-Only numpy and scipy packages are required.
+Only numpy and scipy packages are required. Built in python version 3.10.14.
