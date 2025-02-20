@@ -1,5 +1,5 @@
 # ePC-SAFT
-Electrolyte thermodynamic model based on PC-SAFT EOS, including the Born term, an ion-solvent association term and a concentration, temperature and composition dependent dielectric constant model.
+Electrolyte thermodynamic model based on PC-SAFT EOS, including the Born term, an ion-solvent association term and a density, temperature and composition dependent dielectric constant model.
 
 Model developed according to the paper ["Modeling aqueous solutions with ePC-SAFT including a relative static permittivity model connected to Wertheim's Association Theory"](https://doi.org/10.1016/j.molliq.2024.126726)
 
