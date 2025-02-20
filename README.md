@@ -9,6 +9,8 @@ The dielectric constant model is based on the expression proposed by [Maribo-Mog
 
 The code is built in Python to calculate the components' fugacity coefficients of electrolyte solutions. The example file shows how to obtain the mean ionic activity coefficients (MIAC's) of an aqueous NaCl solution. The parameters for the model were regressed for the ions: Na+, K+, Cl- and Br-. Three sets of sites schemes were studied in the paper for the ions: 2A, 4A and 6A/5A (6A for the cations and 5A for the anions). The 2A scheme was considered to be the most accurate since the individual ionic activity coefficents (IIAC's) were best represented.
 
+If the mixture does not contain íons, the model returns to the original PC-SAFT.
+
 Only aqueous solutions were studied so far. Extensions to other solvents or to mixture of solvents must be done with caution.
 
 ## Files
